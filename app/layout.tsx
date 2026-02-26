@@ -3,8 +3,8 @@ import "./globals.css";
 import Header from "./Header";
 
 export const metadata = {
-  title: "Superblog",
-  description: "A blog app using Next.js and Prisma",
+  title: "My Website",
+  description: "A clean, modern website built with Next.js and Tailwind CSS",
 };
 
 export default function RootLayout({

@@ -1,37 +1,28 @@
 "use client";
 
 import Link from "next/link";
-import { useState, useEffect } from "react";
 
 export default function Header() {
-  const [dbConfigured, setDbConfigured] = useState(true);
-
-  useEffect(() => {
-    const databaseUrl = process.env.NEXT_PUBLIC_DATABASE_URL;
-    if (!databaseUrl || databaseUrl === "prisma+postgres://accelerate.prisma-data.net/?api_key=API_KEY") {
-      setDbConfigured(false);
-    }
-  }, []);
-
   return (
-    <header className="w-full bg-white shadow-md py-4 px-8">
-      <nav className="flex justify-between items-center">
-        <Link href="/" className="text-xl font-bold text-gray-800 hover:text-blue-600 transition-colors">
-          Superblog
+    <header className="w-full bg-white shadow-sm py-4 px-8 sticky top-0 z-10">
+      <nav className="flex justify-between items-center max-w-6xl mx-auto">
+        <Link href="/" className="text-xl font-bold text-blue-600 hover:text-blue-700 transition-colors">
+          My Website
         </Link>
-        {dbConfigured && (
-          <div className="space-x-4">
-            <Link href="/posts" className="text-blue-600 hover:underline">
-              Posts
-            </Link>
-            <Link href="/posts/new" className="text-blue-600 hover:underline">
-              New Post
-            </Link>
-            <Link href="/users/new" className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition">
-              New User
-            </Link>
-          </div>
-        )}
+        <div className="space-x-6">
+          <a href="#features" className="text-gray-600 hover:text-blue-600 transition-colors">
+            Features
+          </a>
+          <a href="#features" className="text-gray-600 hover:text-blue-600 transition-colors">
+            About
+          </a>
+          <a
+            href="#features"
+            className="bg-blue-600 text-white px-5 py-2 rounded-full hover:bg-blue-700 transition"
+          >
+            Contact
+          </a>
+        </div>
       </nav>
     </header>
   );
